@@ -1,12 +1,12 @@
 # Vue3 + Vite in django jinja2 basic starter
-###Django
+### Django
 
 Create virtual environment then install dependencies
 ```sh
 pip install -r requirements.txt
 ```
 
-###Vite
+### Vite
 ```sh
 cd frontend
 ```
