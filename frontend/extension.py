@@ -21,7 +21,7 @@ class ViteExtension(jinja2.ext.Extension):
 
 
 @register.simple_tag
-def render_vite(manifest_dir="vite/dist", dev_path="https://foxyping.dev.pixels.lv:3333"):
+def render_vite(manifest_dir="vite/dist", dev_path="http://0.0.0.0:3333"):
     """
     add to settings vite.extension.ViteExtension
 
@@ -37,7 +37,7 @@ def render_vite(manifest_dir="vite/dist", dev_path="https://foxyping.dev.pixels.
             'auto_reload': True,
             'environment': 'jinja.environment',
             "extensions": [
-                "vite.extension.ViteExtension",
+                "frontend.extension.ViteExtension",
             ],
         }
     }
@@ -45,7 +45,7 @@ def render_vite(manifest_dir="vite/dist", dev_path="https://foxyping.dev.pixels.
 
 
     add to base.html
-    {{ render_vite("vite/static", "https://foxyping.dev.pixels.lv:3333") }}
+    {{ render_vite("frontend/static", "http://0.0.0.0:3333") }}
 
     :rtype: str
     """
