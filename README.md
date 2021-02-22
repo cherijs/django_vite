@@ -1,4 +1,4 @@
-# Vue3 + Vite in django jinja2 basic starter
+# Vue3 + Vite + Tailwindcss in django jinja2 basic starter
 ### Django
 
 Create virtual environment then install dependencies
