@@ -50,7 +50,9 @@ export default defineConfig({
     },
   },
   plugins: [
-    externalWatch(["../jinja2/**/*.html"], { log: true }),
+    externalWatch(["../jinja2/**/*.html", "../templates/**/*.html"], {
+      log: true,
+    }),
     vue({
       template: {
         compilerOptions: {
