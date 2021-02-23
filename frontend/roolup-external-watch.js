@@ -2,8 +2,7 @@ import chalk from "chalk";
 import chokidar from "chokidar";
 import path from "path";
 
-function getShortPath(file, root) {
-  console.log(path.posix.relative(root, file));
+function getRelativePath(file, root) {
   return file.startsWith(root + "/") ? path.posix.relative(root, file) : file;
 }
 
@@ -16,7 +15,7 @@ export default (paths, config = { log: true }) => ({
       if (config.log) {
         logger.info(
           chalk.green(`external page reload `) +
-            chalk.dim(getShortPath(path, root)),
+            chalk.dim(getRelativePath(path, root)),
           { clear: true, timestamp: true }
         );
       }
