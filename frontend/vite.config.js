@@ -1,23 +1,25 @@
 import vue from "@vitejs/plugin-vue";
 import { defineConfig } from "vite";
+import externalWatch from "./roolup-external-watch";
 const { resolve } = require("path");
 const rimraf = require("rimraf");
 
-//delete
+//delete static dir on launch
 rimraf.sync(resolve(__dirname, "static"));
 
 const fs = require("fs");
-// const djangoTplPlugin = require("./django.js");
 
 const django_proxy = {
   target: "0.0.0.0:8000",
   changeOrigin: true,
 };
 
-// https://vitejs.dev/config/
 export default defineConfig({
   base: "/",
   publicDir: "public",
+  watch: {
+    clearScreen: false,
+  },
   resolve: {
     alias: {
       vue: "vue/dist/vue.esm-bundler.js",
@@ -48,7 +50,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    // djangoTplPlugin(),
+    externalWatch(["../jinja2/**/*.html"], { log: true }),
     vue({
       template: {
         compilerOptions: {

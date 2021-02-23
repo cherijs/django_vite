@@ -12,9 +12,9 @@
   <p class="my-2">
     <button
       class="bg-green-500 px-4 py-2 rounded text-white outline-none focus:outline-none focus:ring-0"
-      @click="state.count++"
+      @click="count++"
     >
-      count is: {{ state.count }}
+      count is: {{ count }}
     </button>
   </p>
   <p>
@@ -23,14 +23,18 @@
   </p>
 </template>
 
-<script setup>
-import { defineProps, reactive } from "vue";
-
-defineProps({
-  msg: String,
-});
-
-const state = reactive({ count: 0 });
+<script>
+export default {
+  name: "HelloWorld",
+  props: {
+    msg: String,
+  },
+  data() {
+    return {
+      count: 0,
+    };
+  },
+};
 </script>
 
 <style scoped>
